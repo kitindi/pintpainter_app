@@ -1,0 +1,56 @@
+.userButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+.arrowIcon,
+.avatarIcon {
+  cursor: pointer;
+}
+
+.loginLink {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: #333;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+.loginLink:hover {
+  background-color: #666;
+}
+
+.userOptions {
+  position: absolute;
+  right: 0;
+  top: 120%;
+  padding: 16px;
+  background-color: white;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 16px;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.132);
+}
+.userOption {
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.userOption:hover {
+  background-color: #f1f1f1;
+  color: gray;
+}
+
+/* media queries */
+
+@media (max-width: 475px) {
+  .userButton {
+    display: none;
+  }
+}
