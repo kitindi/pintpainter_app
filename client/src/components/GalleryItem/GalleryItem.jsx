@@ -1,16 +1,27 @@
 import React from "react";
 import "./GalleryItem.css";
 import { Link } from "react-router";
+import { IKImage } from "imagekitio-react";
 
 const GalleryItem = ({ item }) => {
   return (
     <div className="galleryItem" style={{ gridRowEnd: `span ${Math.ceil(item.height / 100)}` }}>
-      <img src={item.media} alt="" />
+      <IKImage
+        urlEndpoint={import.meta.env.VITE_IMAGEKIT_URL_ENDPOINT}
+        path={item.media}
+        transformation={[
+          {
+            width: 500,
+          },
+        ]}
+        loading="lazy"
+        lqip={{ active: true, quality: 20 }}
+      />
       <Link to={`/pin/${item.id}`} className="overlay" />
       <button className="saveButton">Save</button>
       <div className="overlayIcons">
         <button className="share">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" color="#000000" fill="none">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#000000" fill="none">
             <path
               d="M8 7C8 7 10.1958 4.28386 11.4044 3.23889C11.5987 3.0709 11.8169 2.99152 12.0337 3.00072C12.2282 3.00897 12.4215 3.08844 12.5958 3.23912C13.8041 4.28428 16 7 16 7M12.0337 4L12.0337 15"
               stroke="#000000"
@@ -25,6 +36,11 @@ const GalleryItem = ({ item }) => {
               stroke-linecap="round"
               stroke-linejoin="round"
             ></path>
+          </svg>
+        </button>
+        <button className="share">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#000000" viewBox="0 0 256 256">
+            <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm12-88a12,12,0,1,1-12-12A12,12,0,0,1,140,128Zm44,0a12,12,0,1,1-12-12A12,12,0,0,1,184,128Zm-88,0a12,12,0,1,1-12-12A12,12,0,0,1,96,128Z"></path>
           </svg>
         </button>
       </div>
