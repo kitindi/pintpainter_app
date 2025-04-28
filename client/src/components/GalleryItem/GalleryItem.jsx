@@ -1,22 +1,13 @@
 import React from "react";
 import "./GalleryItem.css";
 import { Link } from "react-router";
-import { IKImage } from "imagekitio-react";
+import Image from "../Image/Image";
 
 const GalleryItem = ({ item }) => {
+  const optimizedheight = (372 * item.height) / item.width;
   return (
     <div className="galleryItem" style={{ gridRowEnd: `span ${Math.ceil(item.height / 100)}` }}>
-      <IKImage
-        urlEndpoint={import.meta.env.VITE_IMAGEKIT_URL_ENDPOINT}
-        path={item.media}
-        transformation={[
-          {
-            width: 500,
-          },
-        ]}
-        loading="lazy"
-        lqip={{ active: true, quality: 20 }}
-      />
+      <Image path={item.media} alt="" w={372} h={optimizedheight} />
       <Link to={`/pin/${item.id}`} className="overlay" />
       <button className="saveButton">Save</button>
       <div className="overlayIcons">
