@@ -1,7 +1,8 @@
 import React from "react";
+import Gallery from "../../components/Galllery/Gallery";
 
 const SearchPage = () => {
-  return <div>SearchPage</div>;
+  return <Gallery />;
 };
 
 export default SearchPage;
