@@ -1,7 +1,9 @@
 import React from "react";
+import "./PostPage.css";
 import { Link } from "react-router";
 import Image from "../../components/Image/Image";
 import PostInteractions from "../../components/PostInteractions/PostInteractions";
+import Comments from "../../components/Comments/Comments";
 
 const PostPage = () => {
   return (
@@ -12,9 +14,11 @@ const PostPage = () => {
         </div>
         <div className="postDetails">
           <PostInteractions />
-          <Link to="/john">
+          <Link to="/john" className="postUser">
             <Image path="/generals/user.png" w={40} />
+            <span>John Doe</span>
           </Link>
+          <Comments />
         </div>
       </div>
     </div>
